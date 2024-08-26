@@ -32,7 +32,7 @@ export default function Home() {
               FULL STACK DEVELOPER
             </span>
             <h1 className="h1 mb-6">
-              Hello I'm <br /> <span className="text-secondPrimary">Mohan R</span>
+              Hello I&#39;m <br /> <span className="text-secondPrimary">Mohan R</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               I am a Full Stack Developer who creates elegant websites and is also interested in learning new languages.

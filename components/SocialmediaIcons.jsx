@@ -39,8 +39,8 @@ export default function SocialmediaIcons({containerStyle, iconStyle}) {
       {        
         IconsLink.map((icon,index)=>{
             return(
-                <Tooltip title={icon.text}>
-                    <Link href={icon.icon} target='_blank' key={index} className={iconStyle}>
+                <Tooltip title={icon.text}  key={index}>
+                    <Link href={icon.icon} target='_blank' className={iconStyle}>
                         {icon.icon}
                     </Link>
                 </Tooltip>
