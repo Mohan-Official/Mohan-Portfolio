@@ -17,7 +17,8 @@ const MyProject = [
     description: 'This is related to the restaurant management system, which is build using basic ideas.',
     stack: [{ name: "Html5" }, { name: "Css 3" }, { name: "Bootstrap" }],
     image: "/assets/Restaurant.png",
-    live: "https://mohan-vinotharamkumar.github.io/Hotel-Management/",
+    // live: "https://mohan-vinotharamkumar.github.io/Hotel-Management/",
+    live: "",
     github: "https://github.com/Mohan-Vinotharamkumar/Hotel-Management.git",
   },
   {
@@ -37,7 +38,8 @@ const MyProject = [
     description: 'This is related to the Weather Reporting system, which is build using basic weather api for getting details about weather.',
     stack: [{ name: "Html5" }, { name: "Css 3" }, { name: "React-js" }, { name: 'Javascript' }],
     image: "/assets/WeatherApp.jpg",
-    live: "https://mohan-vinotharamkumar.github.io/Weather-App/",
+    // live: "https://mohan-vinotharamkumar.github.io/Weather-App/",
+    live: "",
     github: "https://github.com/Mohan-Vinotharamkumar/Weather-App.git",
   },
 ];

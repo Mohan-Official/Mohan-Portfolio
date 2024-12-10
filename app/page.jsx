@@ -9,28 +9,28 @@ import Typewriter from 'typewriter-effect';
 import ProjectOverviewCard from "@/components/RajaChek";
 
 export default function Home() {
-  useEffect(() => {
-    // Embed chatbot script
-    const script = document.createElement("script");
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.async = true;
-    script.defer = true;
-    script.setAttribute("chatbotId", "_gEOaoqBDr_zXMAalTt_c");
-    script.setAttribute("domain", "www.chatbase.co");
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   // Embed chatbot script
+  //   const script = document.createElement("script");
+  //   script.src = "https://www.chatbase.co/embed.min.js";
+  //   script.async = true;
+  //   script.defer = true;
+  //   script.setAttribute("chatbotId", "_gEOaoqBDr_zXMAalTt_c");
+  //   script.setAttribute("domain", "www.chatbase.co");
+  //   document.body.appendChild(script);
 
-    // Clean up script on component unmount
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  //   // Clean up script on component unmount
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
 
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-14">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl px-1 flex">
+            {/* <span className="text-xl xl:text-center px-1 flex"> */}
               {/* FULL STACK DEVELOPER */}
               <Typewriter
                 options={{
@@ -39,7 +39,7 @@ export default function Home() {
                   loop: true,
                 }}
               />
-            </span>
+            {/* </span> */}
             <h1 className="h1 mb-6">
               Hello I&#39;m <br /> <span className="text-secondPrimary">Mohan R</span>
             </h1>

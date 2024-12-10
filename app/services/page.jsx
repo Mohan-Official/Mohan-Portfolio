@@ -74,7 +74,7 @@ export default function Services() {
                   </Link>
                 </div>
 
-                <h2 className="text-[42px] font-bold">{service.title}</h2>
+                <h2 className="text-[40px] font-bold">{service.title}</h2>
                 <p className="text-white/60">{service.description}</p>
                 <button
                   style={{ height: '3rem', width: '15rem' }}

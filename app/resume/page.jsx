@@ -73,18 +73,18 @@ const Internal_Project = {
   items :
   [
     {
-      company : "Cloud Cost Optimization",
-      position : "Full Stack Developer",
+      company : "Full Stack Developer",
+      position : "Cloud Cost Optimization",
       duration : "React, Django"
     },
     {
-      company : "Striim Knowledge Bot",
-      position : "Front-end Developer",
+      company : "Front-end Developer",
+      position : "Striim Knowledge Bot",
       duration : "React"
     },
     {
-      company : "Conference Room Booking",
-      position : "Front-end Developer",
+      company : "Front-end Developer",
+      position : "Conference Room Booking",
       duration : "React"
     }
   ]
@@ -198,9 +198,20 @@ export default function Resume() {
   const [showIcon, setShowIcon] = useState(false);
 
   const handleCVBtn = () => {
+
+    const fileUrl = "/assets/Mohan_cv.pdf";
+
     if (!showIcon) {
       setShowIcon(true);
     }
+
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = "mnk_cv.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
   };
 
   return (
@@ -281,7 +292,7 @@ export default function Resume() {
                       {
                         return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
                           <span className='text-secondPrimary'>{item.duration}</span>
-                          <h3 className='text-base max-w-[260px] min-h-[40px] text-center lg:text-left'>{item.position}</h3>
+                          <h3 className='text-[18px] max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
                           <div className='flex items-center gap-3'>
                             {/* <img src="./assets/IndiumLogoBgFree.png" height='20px' width='50px' alt="" /> */}
                             <span className='w-[64px] h-[6px] rounded-full bg-secondPrimary'></span>
@@ -354,17 +365,15 @@ export default function Resume() {
 
             <TabsContent value='about' className="w-full text-center xl:text-left">
               <div className='flex flex-col gap-[30px]'>
-                <span className='flex flex-row justify-between'>
+              {/* flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-14 */}
+                <span className='flex flex-col xl:flex-row items-center justify-between'>
                   <h3 className='text-4xl font-bold'>{About.title}</h3>
-                  <button onClick={handleCVBtn} className='flex flex-row items-center justify-start rounded-md px-8 py-2 text-white border-2 border-white hover:bg-secondPrimary hover:border-secondPrimary duration-200 ease-in-out space-x-2'>
-                    
-                    {
-                      showIcon ? <span>Downloaded</span> : <span>Download CV</span>
-                    }
-                    
-                    {
-                      showIcon ? <TiTick className='text-2xl text-green-600' /> : <FaDownload />
-                    }
+                  <button
+                    onClick={handleCVBtn}
+                    className="flex flex-row items-center justify-center sm:justify-start px-2 py-2 w-3/6 sm:w-3/6 rounded-md sm:items-center xl:w-2/6 xl:justify-center xl:px-6 xl:py-2 text-white border-2 border-white hover:bg-secondPrimary hover:border-secondPrimary duration-200 ease-in-out space-x-5 mt-3.5"
+                  >
+                    {showIcon ? <span>Downloaded</span> : <span>Download CV</span>}
+                    {showIcon ? <TiTick className="text-2xl text-green-600" /> : <FaDownload />}
                   </button>
                 </span>
                 <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{About.description}</p>
