@@ -17,7 +17,7 @@ const myServices = [
       I specialize in creating seamless user experiences and scalable systems.
       My goal is to provide a solution that not only meets your requirements but also enhances your online presence and drives your success.
     `,
-    href: "",
+    href: "/contact",
   },
   {
     num: '2.',
@@ -29,7 +29,7 @@ const myServices = [
       From wireframes and prototypes to final designs, I work to craft solutions that
       captivate users and drive meaningful interactions.
     `,
-    href: "",
+    href: "/contact",
   },
   {
     num: '3.',
@@ -41,31 +41,11 @@ const myServices = [
       I deliver solutions that not only meet your technical requirements but also enhance overall
       system stability and responsiveness.
     `,
-    href: "",
+    href: "/contact",
   },
 ];
 
 export default function Services() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleService = () => {
-    setIsModalOpen(true); // Open the modal
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false); // Close the modal
-  };
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden'; // Disable scrolling
-    } else {
-      document.body.style.overflow = ''; // Re-enable scrolling
-    }
-    return () => {
-      document.body.style.overflow = ''; // Clean up when component unmounts
-    };
-  }, [isModalOpen]);
 
   return (
     <div>
@@ -97,52 +77,16 @@ export default function Services() {
                 <h2 className="text-[42px] font-bold">{service.title}</h2>
                 <p className="text-white/60">{service.description}</p>
                 <button
-                  onClick={handleService}
                   style={{ height: '3rem', width: '15rem' }}
                   className="border-2 mt-4 border-secondPrimary group-hover:bg-secondPrimary group-hover:text-white group-hover:border-transparent transition-all duration-500"
                 >
-                  Book a Service
+                  <Link href={service.href}>
+                    Book a Service
+                  </Link>
                 </button>
                 <div className="border-b border-white/20 w-full mt-6"></div>
               </div>
             ))}
-
-            {isModalOpen && (
-              <div
-                style={{
-                  position: 'fixed',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  border: '2px solid white',
-                  padding: '10px',
-                  backgroundColor: 'white',
-                  zIndex: 1000,
-                  maxHeight: '90vh',
-                  overflowY: 'auto',
-                  boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
-                }}
-                className="modal"
-              >
-                <div className="modal-content">
-                  <button
-                    onClick={closeModal}
-                    className="mr-2"
-                    style={{
-                      position: 'absolute',
-                      top: '10px',
-                      right: '10px',
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <GiCrossedBones className="text-black mt-0 mr-0 text-2xl" />
-                  </button>
-                  <ModalForm closeModal={closeModal} />
-                </div>
-              </div>
-            )}
           </motion.div>
         </div>
       </section>

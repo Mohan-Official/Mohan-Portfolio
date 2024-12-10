@@ -22,7 +22,7 @@ const InfoDetails = [
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description: "4A, Jawahar Sanga Kilamel Cross Street, Chokkalingapuram, Aruppukottai - 626 101"
+    description: "Chennai, TN, IND"
   }
 ];
 
@@ -129,7 +129,7 @@ export default function Contact() {
               </form>
             </div>
 
-            <div className='flex flex-1 items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0'>
+            <div className='flex flex-1 items-start xl:justify-end order-1 xl:order-none mb-8 xl:mb-0'>
               <ul className='flex flex-col gap-10'>
                 {
                   InfoDetails.map((item, index) => (

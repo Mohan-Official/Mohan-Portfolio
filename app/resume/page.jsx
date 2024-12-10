@@ -1,8 +1,9 @@
 "use client"
 
-import React from 'react'
-import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs, FaPython, FaAngular} from 'react-icons/fa'
-import { SiTailwindcss } from 'react-icons/si'
+import React, { useState } from 'react'
+import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs, FaPython, FaAngular, FaJava, FaDownload, } from 'react-icons/fa'
+import { SiTailwindcss, SiFastapi, SiNextdotjs } from 'react-icons/si'
+import { TiTick } from "react-icons/ti";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip,TooltipContent,TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -50,11 +51,45 @@ const Experience = {
   [
     {
       company : "Indium Software's",
+      position : "Associate Software Engineer",
+      duration : "Nov 2024 - present"
+    },
+    {
+      company : "Indium Software's",
       position : "Graduate Engineer Trainee",
-      duration : "2023 - present"
+      duration : "Oct 2023 - Oct 2024"
+    },
+    {
+      company : "Indium Software's",
+      position : "Intern",
+      duration : "Feb 2023 - Oct 2023"
     }
   ]
 }
+
+const Internal_Project = {
+  title : "Internal Projects",
+  description : "Putting developer's hand free is just like tree without leaves, so developing skills is more important.",
+  items :
+  [
+    {
+      company : "Cloud Cost Optimization",
+      position : "Full Stack Developer",
+      duration : "React, Django"
+    },
+    {
+      company : "Striim Knowledge Bot",
+      position : "Front-end Developer",
+      duration : "React"
+    },
+    {
+      company : "Conference Room Booking",
+      position : "Front-end Developer",
+      duration : "React"
+    }
+  ]
+}
+
 
 const Education = {
   title : "My Education",
@@ -125,6 +160,10 @@ const MySkills = {
       name : "react.js"
     },
     {
+      icon : <SiNextdotjs />,
+      name : 'next.js'
+    },
+    {
       icon : <FaNodeJs />,
       name : "node-js"
     },
@@ -137,17 +176,33 @@ const MySkills = {
       name : "python"
     },
     {
+      icon : <FaJava />,
+      name : 'java'
+    },
+    {
       icon : <SiTailwindcss />,
       name : "tailwind-css"
     },
     {
       icon : <FaAngular />,
       name : "angular"
+    },
+    {
+      icon : <SiFastapi />,
+      name : 'fastapi'
     }
   ]
 }
 
 export default function Resume() {
+  const [showIcon, setShowIcon] = useState(false);
+
+  const handleCVBtn = () => {
+    if (!showIcon) {
+      setShowIcon(true);
+    }
+  };
+
   return (
     <motion.div
       initial={{opacity:0}}
@@ -167,6 +222,9 @@ export default function Resume() {
           >
             <TabsTrigger value="experience">
               Experience
+            </TabsTrigger>
+            <TabsTrigger value="internal">
+              Internal Projects
             </TabsTrigger>
             <TabsTrigger value="education">
               Education
@@ -196,8 +254,36 @@ export default function Resume() {
                       {
                         return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
                           <span className='text-secondPrimary'>{item.duration}</span>
-                          <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
+                          <h3 className='text-base max-w-[260px] min-h-[40px] text-center lg:text-left'>{item.position}</h3>
                           <div className='flex items-center gap-3'>
+                            <img src="./assets/IndiumLogoBgFree.png" height='20px' width='50px' alt="" />
+                            {/* <span className='w-[64px] h-[6px] rounded-full bg-secondPrimary'></span> */}
+                            <p className='text-white/60'>{item.company}</p>
+                          </div>
+                        </li>
+                      })}
+                    </ul>
+                </ScrollArea>
+              </div>
+            </TabsContent>
+
+            <TabsContent value='internal' className="w-full">
+              <div className='flex flex-col gap-[30px] text-center xl:text-left'>
+                <h3 className='text-4xl font-bold'>
+                  {Internal_Project.title}
+                </h3>
+                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>
+                  {Internal_Project.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                    <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
+                      {Internal_Project.items.map((item,index)=>
+                      {
+                        return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
+                          <span className='text-secondPrimary'>{item.duration}</span>
+                          <h3 className='text-base max-w-[260px] min-h-[40px] text-center lg:text-left'>{item.position}</h3>
+                          <div className='flex items-center gap-3'>
+                            {/* <img src="./assets/IndiumLogoBgFree.png" height='20px' width='50px' alt="" /> */}
                             <span className='w-[64px] h-[6px] rounded-full bg-secondPrimary'></span>
                             <p className='text-white/60'>{item.company}</p>
                           </div>
@@ -222,7 +308,7 @@ export default function Resume() {
                         {
                           return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
                             <span className='text-secondPrimary'>{item.duration}</span>
-                            <h3 className='text-xl max-w-[260px] min-h-[90px] text-center lg:text-left'>{item.position}</h3>
+                            <h3 className='text-base max-w-[260px] min-h-[70px] text-center lg:text-left'>{item.position}</h3>
                             <div className='flex items-center gap-3'>
                               <span className='w-[64px] h-[6px] rounded-full bg-secondPrimary'></span>
                               <p className='text-white/60'>{item.company}</p>
@@ -265,9 +351,22 @@ export default function Resume() {
                 </ul>
               </div>
             </TabsContent>
+
             <TabsContent value='about' className="w-full text-center xl:text-left">
               <div className='flex flex-col gap-[30px]'>
-                <h3 className='text-4xl font-bold'>{About.title}</h3>
+                <span className='flex flex-row justify-between'>
+                  <h3 className='text-4xl font-bold'>{About.title}</h3>
+                  <button onClick={handleCVBtn} className='flex flex-row items-center justify-start rounded-md px-8 py-2 text-white border-2 border-white hover:bg-secondPrimary hover:border-secondPrimary duration-200 ease-in-out space-x-2'>
+                    
+                    {
+                      showIcon ? <span>Downloaded</span> : <span>Download CV</span>
+                    }
+                    
+                    {
+                      showIcon ? <TiTick className='text-2xl text-green-600' /> : <FaDownload />
+                    }
+                  </button>
+                </span>
                 <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{About.description}</p>
                 <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
                   {

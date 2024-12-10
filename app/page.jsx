@@ -5,6 +5,8 @@ import SocialmediaIcons from "@/components/SocialmediaIcons";
 import Statistics from "@/components/Statistics";
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
+import Typewriter from 'typewriter-effect';
+import ProjectOverviewCard from "@/components/RajaChek";
 
 export default function Home() {
   useEffect(() => {
@@ -28,14 +30,21 @@ export default function Home() {
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-14">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">
-              FULL STACK DEVELOPER
+            <span className="text-xl px-1 flex">
+              {/* FULL STACK DEVELOPER */}
+              <Typewriter
+                options={{
+                  strings: ['Front-end Developer', 'UI / UX Designer', 'Back-end Developer',' Full Stack Developer'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
             </span>
             <h1 className="h1 mb-6">
               Hello I&#39;m <br /> <span className="text-secondPrimary">Mohan R</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I am a Full Stack Developer who creates elegant websites and is also interested in learning new languages.
+              I am a Full Stack Developer who creates elegant websites and also interested in learning new Techstacks...
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <span>Catch me On..</span>
@@ -51,6 +60,7 @@ export default function Home() {
         </div>
       </div>
       <Statistics />
+      {/* <ProjectOverviewCard /> */}
     </section>
   );
 }
