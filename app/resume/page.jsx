@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 
 const About = {
   title : 'About Myself',
-  description : "I've finished my Bachelor's degree from MSEC also i've did my additional course on Web-Development. I've lot of intrest in improving myself on web-development area.",
+  description : "I've finished my Bachelor's degree from MSEC also i've did my additional course on Web-Development. I've lot of interest in improving myself on web-development area.",
   Info : [
     { 
       fieldName : "Name",
